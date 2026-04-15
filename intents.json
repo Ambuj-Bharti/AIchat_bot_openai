@@ -1,0 +1,98 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi",
+        "hello",
+        "hey",
+        "hii",
+        "hy",
+        "hello bot",
+        "hey there",
+        "good morning",
+        "good evening",
+        "hi bot",
+        "hello there",
+        "hey buddy",
+        "good afternoon",
+        "hi there",
+        "hey bro"
+      ],
+      "responses": [
+        "Hello!",
+        "Hi there!",
+        "Hey Ambuj! How can I help you?",
+        "Hello! Nice to meet you!"
+      ]
+    },
+    {
+      "tag": "howareyou",
+      "patterns": [
+        "how are you",
+        "how are you doing",
+        "are you fine",
+        "how is it going",
+        "how do you feel",
+        "are you okay",
+        "how's everything",
+        "how are things",
+        "are you good",
+        "how are you today"
+      ],
+      "responses": [
+        "I am fine!",
+        "Doing great!",
+        "All good here!",
+        "I'm doing well, thanks for asking!"
+      ]
+    },
+    {
+      "tag": "python",
+      "patterns": [
+        "what is python",
+        "explain python",
+        "tell me about python",
+        "python programming language",
+        "uses of python",
+        "define python",
+        "python meaning",
+        "what is python language",
+        "why use python",
+        "about python programming",
+        "python uses",
+        "python details",
+        "what can python do",
+        "python applications",
+        "why python is popular"
+      ],
+      "responses": [
+        "Python is a programming language used for AI, web development, and data science."
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye",
+        "goodbye",
+        "see you",
+        "see you later",
+        "bye bye",
+        "good bye",
+        "catch you later",
+        "talk to you later",
+        "have a great day",
+        "have a good day",
+        "see ya",
+        "take care",
+        "see you soon"
+      ],
+      "responses": [
+        "Goodbye!",
+        "See you later!",
+        "Take care!",
+        "Have a great day!"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>AI Chatbot</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f4f4f4;
+}
+
+#chatbox{
+width:400px;
+height:500px;
+margin:auto;
+background:white;
+border-radius:10px;
+padding:10px;
+overflow-y:auto;
+box-shadow:0 0 10px gray;
+}
+
+.user{
+text-align:right;
+color:blue;
+margin:5px;
+}
+
+.bot{
+text-align:left;
+color:green;
+margin:5px;
+}
+
+#inputbox{
+width:400px;
+margin:10px auto;
+display:flex;
+}
+
+#msg{
+flex:1;
+padding:10px;
+}
+
+button{
+padding:10px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h2 style="text-align:center">AI Chatbot 🤖</h2>
+
+<div id="chatbox"></div>
+
+<div id="inputbox">
+<input id="msg" placeholder="Type message..." onkeypress="enter(event)">
+<button onclick="send()">Send</button>
+</div>
+
+<script>
+
+function send(){
+
+let msg=document.getElementById("msg").value.trim();
+
+if(msg==="") return;
+
+let chat=document.getElementById("chatbox");
+
+chat.innerHTML+="<div class='user'>You: "+msg+"</div>";
+chat.innerHTML+="<div class='bot'>Bot: typing...</div>";
+
+fetch("/chat",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({message:msg})
+})
+.then(res=>res.json().catch(()=>({reply:"Server error"})))
+.then(data=>{
+
+let bots=document.querySelectorAll(".bot");
+bots[bots.length-1].remove();
+
+chat.innerHTML+="<div class='bot'>Bot: "+data.reply+"</div>";
+chat.scrollTop=chat.scrollHeight;
+
+})
+.catch(()=>{
+chat.innerHTML+="<div class='bot'>Error connecting server</div>";
+});
+
+document.getElementById("msg").value="";
+}
+
+function enter(e){
+if(e.key==="Enter"){
+send();
+}
+}
+
+</script>
+
+</body>
+</html>
